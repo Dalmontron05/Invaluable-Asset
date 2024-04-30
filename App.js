@@ -427,10 +427,19 @@ function LogsWriterOnTheWalls({ navigation }) {
 
 // RUNTIME
 export default function App() {
+  // LoadFonts();
+  // PlayGameAudio();
   return (
-    <View style={{}}>
-      <Text>buh</Text>
-    </View>
+    <NavigationContainer>
+      {/* <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Terminal" component={Terminal} />
+        <Stack.Screen name="BodyCam" component={BodyCam} />
+        <Stack.Screen name="LogsLassoMan" component={LogsLassoMan} />
+        <Stack.Screen name="LogsWriterOnTheWalls" component={LogsWriterOnTheWalls} />
+        <Stack.Screen name="Help" component={Help} />
+      </Stack.Navigator> */}
+    </NavigationContainer>
   );
 }
 
