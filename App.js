@@ -18,16 +18,15 @@ import { StatusBar } from 'expo-status-bar';
 import { Text, SafeAreaView, View, StyleSheet, Pressable, Image, ImageBackground, ScrollView, TextInput, Alert, Dimensions, TouchableOpacity } from 'react-native';
 import React, { useState, useRef, useEffect } from "react";
 import { NavigationContainer } from '@react-navigation/native';
-// import { createStackNavigator } from '@react-navigation/stack';
-// import { Video, Audio } from 'expo-av';
-// import { Camera } from 'expo-camera';
+import { createStackNavigator } from '@react-navigation/stack';
+import { Video, Audio } from 'expo-av';
+import { Camera } from 'expo-camera';
 import { useFonts } from 'expo-font';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <Text>buh</Text>
-      
     </View>
   );
 }
