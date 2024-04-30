@@ -13,6 +13,7 @@
 //TODO: when low on battery, have flashlight act on a beacon mode
 
 
+// IMPORTS
 import { StatusBar } from 'expo-status-bar';
 // <StatusBar style="auto" />
 import { Text, SafeAreaView, View, StyleSheet, Pressable, Image, ImageBackground, ScrollView, TextInput, Alert, Dimensions, TouchableOpacity } from 'react-native';
@@ -23,19 +24,66 @@ import { Video, Audio } from 'expo-av';
 import { Camera } from 'expo-camera';
 import { useFonts } from 'expo-font';
 
+
+// GLOBAL VARIABLES
+const screenWidth = Dimensions.get('window').width;
+const Stack = createStackNavigator();
+// background image that's supposed to represent a crewmate's reflection
+const crewmateReflection = require('./assets/images/1000-quota-stare.jpg');
+
+
+// "CSS"
+const styles = StyleSheet.create({
+  // Used for main wrapping containers like the safeareaviews and background image
+  main: { 
+    flex: 1,
+    width: "100%",
+    backgroundColor: "rgba(38, 36, 31, 0.9)"
+  }
+});
+
+const home = StyleSheet.create({
+  options: {
+    backgroundColor: "rgba(26, 24, 21, 0.7)"
+  },
+  text: {
+    color: 'rgb(233, 52, 41)',
+    textAlign: "center",
+    fontSize: 40,
+    fontFamily: "OpenSans_SemiBold",
+    padding: 4,
+    borderBottomColor: 'rgb(233, 52, 41)',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  }
+});
+
+// used for terminal page and all of it's "terminal preview pages", like the logs screens.
+const terminal = StyleSheet.create({
+  text: {
+    color: '#00ff00',
+    fontSize: 30,
+    fontFamily: "Jersey_10"
+  },
+  tempButton: {
+    textAlign: "center"
+  }
+});
+
+const terminalPreview = StyleSheet.create({
+  tempText: {
+    fontSize: 20
+  }
+});
+const terminalButton = StyleSheet.compose(terminal.text, terminal.tempButton);
+const terminalPreviewText = StyleSheet.compose(terminal.text, terminalPreview.tempText);
+
+
+// RUNTIME
 export default function App() {
   return (
-    <View style={styles.container}>
+    <View style={{}}>
       <Text>buh</Text>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
