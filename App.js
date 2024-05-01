@@ -1,11 +1,12 @@
-// Invaluable Company - Inspired by Lethal Company. It (in theory) connects to an actual modded lobby of lethal company. It's roleplays as a work app that an in-game crewmate would have installed on their phone. I took creative liberty with some custom content as well.
+// Invaluable Company - Inspired by Lethal Company. It (in theory) connects to an actual modded lobby of lethal company. It's roleplays as a work app that an in-game crewmate would have installed on their phone. I took creative liberty with some custom content as well. Previous snack: https://snack.expo.dev/@dalmontron/invaluable-asset
 
 
 
-//! finish remaking this shit from the snack.
-//? currently importing shit
-// https://snack.expo.dev/@dalmontron/invaluable-asset
+//* Technical
+//TODO: make assets normal size and resolution
+//TODO: make fonts work again
 
+//* Features
 //TODO: add how to mount phone to carrier in help section
 //TODO: add seperate sound effects for flashlight and camera flip toggle
 //TODO: maybe add an artificial battery life in the app itself that goes up when you charge your "phone" in the ship ingame
@@ -389,7 +390,7 @@ function LogsLassoMan({ navigation }) {
 
           {/* Lasso Man */}
           <Image
-            style={{height: 300, width: 300, contentFit:'contain', alignSelf:'center'}}
+            style={{height: 300, width: 300, alignSelf:'center'}}
             source={require('./assets/images/lassoman.webp')}
           ></Image>
         </ScrollView>
@@ -432,19 +433,13 @@ export default function App() {
   // PlayGameAudio();
   return (
     <NavigationContainer>
-      {/* <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Terminal" component={Terminal} />
-        <Stack.Screen name="BodyCam" component={BodyCam} />
-        <Stack.Screen name="LogsLassoMan" component={LogsLassoMan} />
-        <Stack.Screen name="LogsWriterOnTheWalls" component={LogsWriterOnTheWalls} />
-        <Stack.Screen name="Help" component={Help} />
-      </Stack.Navigator> */}
-
-
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="BodyCam" component={BodyCam} />
+        <Stack.Screen name="Terminal" component={Terminal} />
+        <Stack.Screen name="Help" component={Help} />
+        <Stack.Screen name="LogsLassoMan" component={LogsLassoMan} />
+        <Stack.Screen name="LogsWriterOnTheWalls" component={LogsWriterOnTheWalls} />
       </Stack.Navigator>
     </NavigationContainer>
   );
