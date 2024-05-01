@@ -153,45 +153,6 @@ function Home ({ navigation })
         source={require('./assets/images/mars-icon.png')}
       ></Image>
 
-      <Text style={{color: "black", fontFamily:"OpenSans_ExtraBold", fontSize: 32, textAlign: "center", alignSelf: 'center', paddingLeft: 8}}>
-        {"The\nCompany"}
-      </Text>
-    </SafeAreaView>
-
-
-    {/* Body */}
-    <SafeAreaView style={ styles.main }>
-      <Pressable onPress={() => {navigation.navigate('Terminal'), PlayButtonClick()}} style={ home.options }>
-        <Text style={ home.text }>
-          {'Terminal'}
-        </Text>
-      </Pressable>
-
-      <Pressable onPress={() => {navigation.navigate('BodyCam'), PlayButtonClick()}} style={ home.options }>
-        <Text style={ home.text }>
-          {'BodyCam'}
-        </Text>
-      </Pressable>
-    </SafeAreaView>
-
-  </ImageBackground>
-  </View>
-  );
-}
-
-
-function TempHome ({ navigation })
-{ return (
-  <View style={ styles.main }>
-  <ImageBackground source={ crewmateReflection } style={ styles.main }>
-  
-    {/* Header */}
-    <SafeAreaView style={{ flex: 0.3, backgroundColor: 'rgba(233, 52, 41, 0.8)', flexDirection: 'row', alignContent: "center", justifyContent: "center"}}>
-      <Image
-        style={{height: 150, width: 150, alignSelf: "center"}}
-        source={require('./assets/images/mars-icon.png')}
-      ></Image>
-
       <Text style={{color: "black", fontSize: 32, textAlign: "center", alignSelf: 'center', paddingLeft: 8}}> {/* fontFamily:"OpenSans_ExtraBold",  */}
         {"The\nCompany"}
       </Text>
@@ -229,7 +190,7 @@ function BodyCam ({ navigation })
 
   useEffect(() => {
     (async () => {
-      const { status } = await Camera.requestPermissionsAsync();
+      const { status } = await Camera.requestCameraPermissionsAsync();
       setHasPermission(status === 'granted');
     })();
   }, []);
@@ -481,8 +442,9 @@ export default function App() {
       </Stack.Navigator> */}
 
 
-      <Stack.Navigator initialRouteName="TempHome">
-        <Stack.Screen name="TempHome" component={TempHome} />
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="BodyCam" component={BodyCam} />
       </Stack.Navigator>
     </NavigationContainer>
   );
