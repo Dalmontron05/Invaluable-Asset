@@ -23,6 +23,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Video, Audio } from 'expo-av';
 import { Camera } from 'expo-camera';
 import { useFonts } from 'expo-font';
+import { GestureHandlerRootView} from 'react-native-gesture-handler'
 
 
 // GLOBAL VARIABLES
@@ -50,7 +51,7 @@ const home = StyleSheet.create({
     color: 'rgb(233, 52, 41)',
     textAlign: "center",
     fontSize: 40,
-    fontFamily: "OpenSans_SemiBold",
+    // fontFamily: "OpenSans_SemiBold",
     padding: 4,
     borderBottomColor: 'rgb(233, 52, 41)',
     borderBottomWidth: StyleSheet.hairlineWidth,
@@ -62,7 +63,7 @@ const terminal = StyleSheet.create({
   text: {
     color: '#00ff00',
     fontSize: 30,
-    fontFamily: "Jersey_10"
+    // fontFamily: "Jersey_10"
   },
   tempButton: {
     textAlign: "center"
@@ -176,6 +177,45 @@ function Home ({ navigation })
   </ImageBackground>
   </View>
   );
+}
+
+
+function TempHome ({ navigation })
+{ return (
+  <View style={ styles.main }>
+  <ImageBackground source={ crewmateReflection } style={ styles.main }>
+  
+    {/* Header */}
+    <SafeAreaView style={{ flex: 0.3, backgroundColor: 'rgba(233, 52, 41, 0.8)', flexDirection: 'row', alignContent: "center", justifyContent: "center"}}>
+      <Image
+        style={{height: 150, width: 150, alignSelf: "center"}}
+        source={require('./assets/images/mars-icon.png')}
+      ></Image>
+
+      <Text style={{color: "black", fontSize: 32, textAlign: "center", alignSelf: 'center', paddingLeft: 8}}> {/* fontFamily:"OpenSans_ExtraBold",  */}
+        {"The\nCompany"}
+      </Text>
+    </SafeAreaView>
+
+
+    {/* Body */}
+    <SafeAreaView style={ styles.main }>
+      <Pressable onPress={() => {navigation.navigate('Terminal'), PlayButtonClick()}} style={ home.options }>
+        <Text style={ home.text }>
+          {'Terminal'}
+        </Text>
+      </Pressable>
+
+      <Pressable onPress={() => {navigation.navigate('BodyCam'), PlayButtonClick()}} style={ home.options }>
+        <Text style={ home.text }>
+          {'BodyCam'}
+        </Text>
+      </Pressable>
+    </SafeAreaView>
+
+  </ImageBackground>
+  </View>
+);
 }
 
 
@@ -427,7 +467,7 @@ function LogsWriterOnTheWalls({ navigation }) {
 
 // RUNTIME
 export default function App() {
-  // LoadFonts();
+  LoadFonts();
   // PlayGameAudio();
   return (
     <NavigationContainer>
@@ -439,6 +479,11 @@ export default function App() {
         <Stack.Screen name="LogsWriterOnTheWalls" component={LogsWriterOnTheWalls} />
         <Stack.Screen name="Help" component={Help} />
       </Stack.Navigator> */}
+
+
+      <Stack.Navigator initialRouteName="TempHome">
+        <Stack.Screen name="TempHome" component={TempHome} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
