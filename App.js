@@ -1,4 +1,6 @@
-// Invaluable Company - Inspired by Lethal Company. It (in theory) connects to an actual modded lobby of lethal company. It's roleplays as a work app that an in-game crewmate would have installed on their phone. I took creative liberty with some custom content as well. Previous snack: https://snack.expo.dev/@dalmontron/invaluable-asset
+// Main JS file
+/* Invaluable Company - Inspired by Lethal Company. It (in theory) connects to an actual modded lobby of lethal company. It's roleplays as a work app that an in-game crewmate would have installed on their phone. I took creative liberty with some custom content as well.
+Previous snack: https://snack.expo.dev/@dalmontron/invaluable-asset */
 
 
 
@@ -7,7 +9,9 @@
 //TODO: make fonts work again
 
 //* Features
+//TODO: make status bar pretty
 //TODO: add how to mount phone to carrier in help section
+//TODO: make camera 1:1 aspect ratio, and design flashlight and camera flip toggle UI accordingly with that extra screen real estate
 //TODO: add seperate sound effects for flashlight and camera flip toggle
 //TODO: maybe add an artificial battery life in the app itself that goes up when you charge your "phone" in the ship ingame
 //TODO: add in-game clock and current day. maybe scrap sell price as well?
@@ -24,7 +28,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Video, Audio } from 'expo-av';
 import { Camera } from 'expo-camera';
 import { useFonts } from 'expo-font';
-import { GestureHandlerRootView} from 'react-native-gesture-handler'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 
 
 // GLOBAL VARIABLES
@@ -64,7 +68,7 @@ const terminal = StyleSheet.create({
   text: {
     color: '#00ff00',
     fontSize: 30,
-    // fontFamily: "Jersey_10"
+    fontFamily: "Jersey10-Regular"
   },
   tempButton: {
     textAlign: "center"
@@ -81,13 +85,13 @@ const terminalPreviewText = StyleSheet.compose(terminal.text, terminalPreview.te
 
 
 // Fonts
-function LoadFonts() {
-  useFonts({
-    'OpenSans_ExtraBold': require('./assets/fonts/Open_Sans/OpenSans-ExtraBold.ttf'),
-    'OpenSans_SemiBold': require('./assets/fonts/Open_Sans/OpenSans-SemiBold.ttf'),
-    'Jersey_10': require('./assets/fonts/Jersey_10/Jersey10-Regular.ttf')
-  });
-}
+// function LoadFonts() {
+//   useFonts({
+//     'OpenSans_ExtraBold': require('./assets/fonts/Open_Sans/OpenSans-ExtraBold.ttf'),
+//     'OpenSans_SemiBold': require('./assets/fonts/Open_Sans/OpenSans-SemiBold.ttf'),
+//     'Jersey_10': require('./assets/fonts/Jersey_10/Jersey10-Regular.ttf')
+//   });
+// }
 
 
 // Return Button in terminal preview screens https://stackoverflow.com/questions/70488802/react-native-how-to-create-elements-and-return-them-in-a-function
@@ -154,7 +158,8 @@ function Home ({ navigation })
         source={require('./assets/images/mars-icon.png')}
       ></Image>
 
-      <Text style={{color: "black", fontSize: 32, textAlign: "center", alignSelf: 'center', paddingLeft: 8}}> {/* fontFamily:"OpenSans_ExtraBold",  */}
+{/* fontFamily:"OpenSans_SemiBold", */}
+      <Text style={{color: "black", fontSize: 32, textAlign: "center", alignSelf: 'center', paddingLeft: 8}}>
         {"The\nCompany"}
       </Text>
     </SafeAreaView>
@@ -429,7 +434,7 @@ function LogsWriterOnTheWalls({ navigation }) {
 
 // RUNTIME
 export default function App() {
-  LoadFonts();
+  // LoadFonts()
   // PlayGameAudio();
   return (
     <NavigationContainer>
