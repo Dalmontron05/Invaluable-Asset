@@ -68,7 +68,7 @@ const terminal = StyleSheet.create({
   text: {
     color: '#00ff00',
     fontSize: 30,
-    fontFamily: "Jersey10-Regular"
+    // fontFamily: "Jersey10-Regular"
   },
   tempButton: {
     textAlign: "center"
