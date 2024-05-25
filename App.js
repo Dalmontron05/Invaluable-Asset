@@ -7,6 +7,7 @@ Previous snack: https://snack.expo.dev/@dalmontron/invaluable-asset */
 //* Technical
 //TODO: make assets normal size and resolution
 //TODO: make fonts work again
+//TODO: bodycam broke when upgrading sdk to 51
 
 //* Features
 //TODO: make status bar pretty
