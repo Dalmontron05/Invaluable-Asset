@@ -190,70 +190,78 @@ function Home ({ navigation })
 // Bodycam Page
 function BodyCam ({ navigation })
 { 
-  const [hasPermission, setHasPermission] = useState(null);
-  const [type, setType] = useState(Camera.Constants.Type.back);
-  const [flashMode, setFlashMode] = useState(Camera.Constants.FlashMode.off)
+  return
+  (
+    <View>
+      
+    </View> 
+  )
+
+  // const [hasPermission, setHasPermission] = useState(null);
+  // const [type, setType] = useState(Camera.Constants.Type.back);
+  // const [flashMode, setFlashMode] = useState(Camera.Constants.FlashMode.off)
 
 
-  useEffect(() => {
-    (async () => {
-      const { status } = await Camera.requestCameraPermissionsAsync();
-      setHasPermission(status === 'granted');
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     const { status } = await Camera.requestCameraPermissionsAsync();
+  //     setHasPermission(status === 'granted');
+  //   })();
+  // }, []);
   
 
-  if (hasPermission === null) {
-    return <View />;
-  }
-  if (hasPermission === false) {
-    return <Text>No access to camera</Text>;
-  }
+  // if (hasPermission === null) {
+  //   return <View />;
+  // }
+  // if (hasPermission === false) {
+  //   return <Text>No access to camera</Text>;
+  // }
 
 
-  return (
-  <View style={{ flex: 1 }}>
-    <Camera style={{ flex: 1 }} type={type} flashMode={flashMode}>
-      <View
-        style={{
-          flex: 1,
-          backgroundColor: 'transparent',
-          flexDirection: 'column-reverse',
-        }}>
-        <TouchableOpacity
-          style={{
-            flex: 0.2,
-            alignSelf: 'flex-end',
-            alignItems: 'center',
-          }}
-          onPress={() => {
-            setFlashMode(
-              flashMode === Camera.Constants.FlashMode.off
-                ? Camera.Constants.FlashMode.torch
-                : Camera.Constants.FlashMode.off
-            );
-          }}>
-          <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> Flashlight </Text>
-        </TouchableOpacity>
-      </View>
-      <TouchableOpacity
-          style={{
-            flex: 0.2,
-            alignSelf: 'flex-end',
-            alignItems: 'center',
-          }}
-          onPress={() => {
-            setType(
-              type === Camera.Constants.Type.back
-                ? Camera.Constants.Type.front
-                : Camera.Constants.Type.back
-            );
-          }}>
-          <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> Flip </Text>
-        </TouchableOpacity>
-    </Camera>
-  </View>
-  );
+  // return (
+  // <View style={{ flex: 1 }}>
+  //   {/* type={type} flashMode={flashMode}*/}
+  //   <Camera style={{ flex: 1 }}>
+  //     <View
+  //       style={{
+  //         flex: 1,
+  //         backgroundColor: 'transparent',
+  //         flexDirection: 'column-reverse',
+  //       }}>
+  //       <TouchableOpacity
+  //         style={{
+  //           flex: 0.2,
+  //           alignSelf: 'flex-end',
+  //           alignItems: 'center',
+  //         }}
+  //         onPress={() => {
+  //           setFlashMode(
+  //             flashMode === Camera.Constants.FlashMode.off
+  //               ? Camera.Constants.FlashMode.torch
+  //               : Camera.Constants.FlashMode.off
+  //           );
+  //         }}>
+  //         <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> Flashlight </Text>
+  //       </TouchableOpacity>
+  //     </View>
+  //     <TouchableOpacity
+  //         style={{
+  //           flex: 0.2,
+  //           alignSelf: 'flex-end',
+  //           alignItems: 'center',
+  //         }}
+  //         onPress={() => {
+  //           setType(
+  //             type === Camera.Constants.Type.back
+  //               ? Camera.Constants.Type.front
+  //               : Camera.Constants.Type.back
+  //           );
+  //         }}>
+  //         <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> Flip </Text>
+  //       </TouchableOpacity>
+  //   </Camera>
+  // </View>
+  // );
 }
 
 
